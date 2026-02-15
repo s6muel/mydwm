@@ -83,11 +83,12 @@ static const char *emacs[] = {"emacs", NULL};
 static const char *fileman[] = {"pcmanfm", NULL};
 static const char *lockcmd[] = {"loginctl", "lock-session", NULL};
 static const char *volupcmd[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@",
-                                 "+5%", NULL};
+    "+5%", NULL};
 static const char *voldowncmd[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@",
-                                   "-5%", NULL};
+    "-5%", NULL};
 static const char *mutevolcmd[] = {"pactl", "set-sink-mute", "@DEFAULT_SINK@",
-                                   "toggle", NULL};
+    "toggle", NULL};
+static const char *screenshot[] = {"/home/sam/.local/bin/screenshot.sh", NULL};
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
@@ -121,6 +122,7 @@ static const Key keys[] = {
     {MODKEY, XK_e, spawn, {.v = emacs}},
     {MODKEY, XK_f, spawn, {.v = browser}},
     {MODKEY, XK_g, spawn, {.v = fileman}},
+    {MODKEY, XK_Print, spawn, {.v = screenshot}},
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
             TAGKEYS(XK_9, 8){MODKEY | ShiftMask, XK_q, quit, {0}},
